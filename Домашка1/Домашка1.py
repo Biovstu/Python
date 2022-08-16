@@ -60,7 +60,7 @@ c = ['номер четверти от 1 до 4','x > 0 and y > 0','x < 0 and y 
 if a in range(1,5):
     print(c[a])
 else:
-    print('номер четверти от 1 до 4')
+    print(c[0])
 #решение 2
 # if a in range(1,5):
 #     if a == 1:
