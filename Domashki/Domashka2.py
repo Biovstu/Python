@@ -52,6 +52,5 @@
 # print('Исходный список:\n',spis)
 # spis_suffle = []
 # while len(spis) != 0:
-#     i = random.randrange(len(spis))
-#     spis_suffle.append(spis.pop(i))
+#     spis_suffle.append(spis.pop(random.randrange(len(spis))))
 # print('Перемешаем список:\n',spis_suffle)
