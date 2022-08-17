@@ -25,16 +25,33 @@
 # *Пример:*
 # - Для n = 6 -> 14.072
 
-
-
-# import random
-# a = random.randrange(-n, n + 1)
-
-# a = 12323.234234235325
-# print(round(a, 3))
+# n = int(input('Укажите количество членов последовательности n: '))
+# sum_n = 0
+# for i in range(1,n+1):
+#     sum_n += (1 + 1 / i) ** i
+# print('сумма последовательности =', round(sum_n, 3))
 
 # Задача 2.4 Задайте список из N элементов, заполненных числами из промежутка [-N, N].
 # Найдите произведение элементов на позициях a и b. Значения N, a и b вводит пользователь с клавиатуры
 # через пробел.
+# import random
+# N, a, b = input('Введите N a b: ').split(' ')
+# N = int(N)
+# a = int(a)
+# b = int(b)
+# NN = []
+# for i in range(N):
+#     NN.append(random.randrange(-N, N + 1))
+# print(NN)
+# print(f'Произведение {a}го и {b}го элементов = ', NN[a-1] * NN[b-1]) # Предположим, что пользователь считает порядок с 1
 
 # Задача 2.5 Реализуйте алгоритм перемешивания списка.
+#'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort'
+# import random
+# spis = input('Введите список через пробелы: ').split(' ')
+# print('Исходный список:\n',spis)
+# spis_suffle = []
+# while len(spis) != 0:
+#     i = random.randrange(len(spis))
+#     spis_suffle.append(spis.pop(i))
+# print('Перемешаем список:\n',spis_suffle)
