@@ -114,13 +114,13 @@
 
 # Словари
 # dictionary = {}
-dictionary = \
-    {
-        'up': '↑',
-        'left': '←',
-        'down': '↓',
-        'right': '→'
-    }
+# dictionary = \
+#     {
+#         'up': '↑',
+#         'left': '←',
+#         'down': '↓',
+#         'right': '→'
+#     }
 # print(dictionary) # {'up':'↑', 'left':'←', 'down':'↓', 'right':'→'}
 # print(dictionary['left']) # ←
 # # типы ключей могут отличаться
@@ -182,3 +182,4 @@ dictionary = \
 # b = frozenset(a)
 # print(b) # frozenset({1, 2, 3, 5, 8})
 
+# print(dir(set()))
