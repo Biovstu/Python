@@ -74,35 +74,35 @@
 # Задача - сформировать файл, содержащий сумму многочленов.
 
 
-def sum_mnog(new,m):
-    m = m.replace(' - ',' + -').replace(' = ','*').split(' + ')
-    for i in m:
-        new[i.split('*')[1]] = new.get(i.split('*')[1],0) + int(i.split('*')[0])
-    return new
+# def sum_mnog(new,m):
+#     m = m.replace(' - ',' + -').replace(' = ','*').split(' + ')
+#     for i in m:
+#         new[i.split('*')[1]] = new.get(i.split('*')[1],0) + int(i.split('*')[0])
+#     return new
 
 
-with open('Domashki\mnogoch1.txt', 'r') as f:
-    m1 = f.read()
+# with open('Domashki\mnogoch1.txt', 'r') as f:
+#     m1 = f.read()
 
-with open('Domashki\mnogoch2.txt', 'r') as f:
-    m2 = f.read()
+# with open('Domashki\mnogoch2.txt', 'r') as f:
+#     m2 = f.read()
 
-new_mnog = {}
-new_mnog = sum_mnog(sum_mnog(new_mnog,m1),m2)
-s = ''
-for i in new_mnog.keys():
-    if i != '0':
-        if new_mnog[i] > 0:
-            s += ' + '+str(new_mnog[i])+'*'+i
-        elif new_mnog[i] < 0:
-            s += ' - '+str(abs(new_mnog[i]))+'*'+i
-    else:
-        if new_mnog[i] > 0:
-            s += ' + '+str(new_mnog[i])
-        elif new_mnog[i] < 0:
-            s += ' - '+str(abs(new_mnog[i]))
+# new_mnog = {}
+# new_mnog = sum_mnog(sum_mnog(new_mnog,m1),m2)
+# s = ''
+# for i in new_mnog.keys():
+#     if i != '0':
+#         if new_mnog[i] > 0:
+#             s += ' + '+str(new_mnog[i])+'*'+i
+#         elif new_mnog[i] < 0:
+#             s += ' - '+str(abs(new_mnog[i]))+'*'+i
+#     else:
+#         if new_mnog[i] > 0:
+#             s += ' + '+str(new_mnog[i])
+#         elif new_mnog[i] < 0:
+#             s += ' - '+str(abs(new_mnog[i]))
 
-s = s[3:]+' = 0'
+# s = s[3:]+' = 0'
 
-with open('Domashki\mnogoch.txt', 'w') as f:
-    f.write(s)
+# with open('Domashki\mnogoch.txt', 'w') as f:
+#     f.write(s)
