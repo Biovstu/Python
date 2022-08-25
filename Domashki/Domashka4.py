@@ -45,6 +45,64 @@
 # многочлена и записать в файл многочлен степени k.
 # Пример:
 # - k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
-# 
+ 
+# import random
+# k = 5
+# key = []
+# val = []
+# for i in range(k+1):
+#     if i == 0:
+#         key.append('')
+#     elif i == 1:
+#         key.append('x')
+#     else:
+#         key.append('x^'+str(i))
+#     val.append(random.randrange(101))
+# eq = ''
+# for i in range(1,k+2):
+#     if val[-i] != 0:
+#         if i != k+1:
+#             eq += str(val[-i])+'*'+key[-i]+' + '
+#         else:
+#             eq += str(val[-i])
+# eq += ' = 0'
+# with open('Domashki\mnogoch.txt', 'w') as f:
+#     f.write(eq)
+
 # Задача 4.5
-# Даны два файла, в каждом из которых находится запись многочлена. Задача - сформировать файл, содержащий сумму многочленов.
+# Даны два файла, в каждом из которых находится запись многочлена.
+# Задача - сформировать файл, содержащий сумму многочленов.
+
+
+def sum_mnog(new,m):
+    m = m.replace(' - ',' + -').replace(' = ','*').split(' + ')
+    for i in m:
+        new[i.split('*')[1]] = new.get(i.split('*')[1],0) + int(i.split('*')[0])
+    return new
+
+
+with open('Domashki\mnogoch1.txt', 'r') as f:
+    m1 = f.read()
+
+with open('Domashki\mnogoch2.txt', 'r') as f:
+    m2 = f.read()
+
+new_mnog = {}
+new_mnog = sum_mnog(sum_mnog(new_mnog,m1),m2)
+s = ''
+for i in new_mnog.keys():
+    if i != '0':
+        if new_mnog[i] > 0:
+            s += ' + '+str(new_mnog[i])+'*'+i
+        elif new_mnog[i] < 0:
+            s += ' - '+str(abs(new_mnog[i]))+'*'+i
+    else:
+        if new_mnog[i] > 0:
+            s += ' + '+str(new_mnog[i])
+        elif new_mnog[i] < 0:
+            s += ' - '+str(abs(new_mnog[i]))
+
+s = s[3:]+' = 0'
+
+with open('Domashki\mnogoch.txt', 'w') as f:
+    f.write(s)
