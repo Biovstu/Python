@@ -3,17 +3,19 @@
 # Пример:
 # - при $d = 0.001, π = 3.141.$    $10^{-1} ≤ d ≤10^{-10}$
 
-# d = '0.0000000001'
+# d = '0.0000001'
 # from math import pow, sqrt
 # pi = 0
-# for i in range(1,22): #нашел экспериментальную зависимость количества значимых знаком от количества итераций. Итерации = 2d+2, но тут решил этого не вставлять в код, так как малозначимо.
+# i = 1
+# while abs(1/((2 * i + 1) * pow(-3,i))) >= float(d)/2/sqrt(3):
 #     pi += 1/((2 * i + 1) * pow(-3,i))
+#     i += 1
 # pi = round(2 * sqrt(3) * (1 + pi),11)
 # print(str(pi)[:len(d.split('.')[1])+2])
 
 # Задача 4.2
 # Задайте натуральное число N. Напишите программу, которая составит список простых множителей числа N.
-
+# Вариант 1
 # def prost(x):
 #     for i in range(2,x):
 #         if not (x % i):
@@ -22,12 +24,32 @@
 #     else:
 #         return 1
 
-# n = 21
-# mnoj = [1]
+
+# mnoj = []
 # for i in range(2, n+1):
 #     if prost(i) and n % i == 0:
 #         mnoj.append(i)
 # print(mnoj)
+
+
+# Вариант 2: эратосфен
+# def eratos(n):
+#     sieve = list(range(n + 1))
+#     sieve[1] = 0
+#     for i in sieve:
+#         if i > 1:
+#             for j in range(2*i, len(sieve), i):
+#                 sieve[j] = 0
+#     return sieve
+
+
+# n = 124
+# lst = []
+# for i in eratos(n):
+#     if i != 0 and n % i == 0:
+#         lst.append(i)
+# print(lst)
+
 
 # Задача 4.3
 # Задайте последовательность чисел. Напишите программу, которая выведет список
@@ -37,8 +59,12 @@
 # chisla = [1,2,3,4,5,6,7,4,5,6,7]
 # scet = {}
 # for i in chisla:
-#     scet[i] = 1
-# print(list(scet.keys()))
+#     scet[i] = scet.get(i,0) + 1
+# chisla.clear()
+# for k in scet.keys():
+#     if scet[k] == 1:
+#         chisla.append(k)
+# print(chisla)
 
 # Задача 4.4
 # Задана натуральная степень k. Сформировать случайным образом список коэффициентов (значения от 0 до 100)
