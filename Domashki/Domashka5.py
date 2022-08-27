@@ -1,16 +1,14 @@
 # 1. Напишите программу, удаляющую из текста все слова, содержащие "абв".
 #     Входные и выходные данные хранятся в отдельных текстовых файлах.
 
-# import codecs #была ошибка кодирования кириллицы "С„Р°Р№Р»Рµ РЅР°С…РѕРґРёР°Р±РІС‚СЃСЏ"
-
-# with codecs.open('Domashki\input51.txt', 'r', encoding='utf-8', errors='strict', buffering=- 1) as f:
+# with open('Domashki\input51.txt', mode='r', encoding='utf-8') as f:
 #     s = f.read()
 
 # print(s)
 # a = ' '.join(filter(lambda x: 'абв' not in x, s.split()))
 # print(a)
 
-# with codecs.open('Domashki\output51.txt', 'w', encoding='utf-8', errors='strict', buffering=- 1) as f:
+# with open('Domashki\output51.txt', mode='w', encoding='utf-8') as f:
 #     f.write(a)
 
 # 2. Создайте программу для игры с конфетами человек против человека.
@@ -28,3 +26,20 @@
 
 # 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
 #     Входные и выходные данные хранятся в отдельных текстовых файлах.
+
+with open('Domashki\unzip54.txt', 'r') as f:
+    unzipped = f.read()
+
+print(unzipped)
+zipped = ''
+a = unzipped[0]
+for i in range(1,len(unzipped)):
+    if a[0] != unzipped[i] or i == len(unzipped) - 1:
+        zipped += a[0] + str(len(a))
+        a = unzipped[i]
+    else:
+        a += unzipped[i]
+print(zipped)
+
+with open('Domashki\zip54.txt', 'w') as fil:
+    fil.write(a)
