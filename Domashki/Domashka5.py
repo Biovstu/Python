@@ -27,19 +27,33 @@
 # 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
 #     Входные и выходные данные хранятся в отдельных текстовых файлах.
 
-with open('Domashki\unzip54.txt', 'r') as f:
-    unzipped = f.read()
+# сжатие
+# with open('Domashki/unzip54.txt', 'r') as f:
+#     unzipped = f.read()
 
-print(unzipped)
-zipped = ''
-a = unzipped[0]
-for i in range(1,len(unzipped)):
-    if a[0] != unzipped[i] or i == len(unzipped) - 1:
-        zipped += a[0] + str(len(a))
-        a = unzipped[i]
-    else:
-        a += unzipped[i]
+# print(unzipped)
+# zipped = ''
+# a = unzipped[0]
+# for i in range(1,len(unzipped)):
+#     if a[0] != unzipped[i] or i == len(unzipped) - 1:
+#         zipped += a[0] + str(len(a))
+#         a = unzipped[i]
+#     else:
+#         a += unzipped[i]
+# print(zipped)
+
+# with open('Domashki/zip54.txt', 'w') as fil:
+#     fil.write(zipped)
+
+# восстановление
+with open('Domashki/zip54.txt', 'r') as f:
+    zipped = f.read()
+
 print(zipped)
+unzipped = ''
+for i in range(0,len(zipped),2):
+    unzipped += zipped[i] * int(zipped[i + 1])
+print(unzipped)
 
-with open('Domashki\zip54.txt', 'w') as fil:
-    fil.write(a)
+with open('Domashki/unzip54.txt', 'w') as fil:
+    fil.write(unzipped)
