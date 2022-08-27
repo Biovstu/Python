@@ -1,6 +1,18 @@
 # 1. Напишите программу, удаляющую из текста все слова, содержащие "абв".
 #     Входные и выходные данные хранятся в отдельных текстовых файлах.
 
+# import codecs #была ошибка кодирования кириллицы "С„Р°Р№Р»Рµ РЅР°С…РѕРґРёР°Р±РІС‚СЃСЏ"
+
+# with codecs.open('Domashki\input51.txt', 'r', encoding='utf-8', errors='strict', buffering=- 1) as f:
+#     s = f.read()
+
+# print(s)
+# a = ' '.join(filter(lambda x: 'абв' not in x, s.split()))
+# print(a)
+
+# with codecs.open('Domashki\output51.txt', 'w', encoding='utf-8', errors='strict', buffering=- 1) as f:
+#     f.write(a)
+
 # 2. Создайте программу для игры с конфетами человек против человека.
 
 #     Условие задачи: На столе лежит 2021 конфета. Играют два игрока делая ход друг после друга.
