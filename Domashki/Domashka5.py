@@ -12,17 +12,72 @@
 #     f.write(a)
 
 # 2. Создайте программу для игры с конфетами человек против человека.
-
 #     Условие задачи: На столе лежит 2021 конфета. Играют два игрока делая ход друг после друга.
 #     Первый ход определяется жеребьёвкой. За один ход можно забрать не более чем 28 конфет. 
 #     Все конфеты оппонента достаются сделавшему последний ход. 
 #     Сколько коынфет нужно взять первому игроку, чтобы забрать все конфеты у своего конкурента?
-
 #     a) Добавьте игру против бота
-
 #     b) Подумайте как наделить бота "интеллектом"
 
+# from random import randrange
+# from os import system
+
+
+# def okonchanie(s):
+#     if len(str(s)) > 1 and str(s)[-2] == '1':
+#         return ''
+#     elif str(s)[-1] in ['0','5','6','7','8','9']:
+#         return ''
+#     elif str(s)[-1] in ['2','3','4']:
+#         return 'ы'
+#     else:
+#         return('а')
+
+
+# system('cls')
+# n = 58
+# print('Правила игры:')
+# print(f'{"На столе лежит"} {n} {"конфет"}{okonchanie(n)}')
+# print('Два игрока делают ходы по-очереди.\nЗа один ход можно взять от 1 до 28 конфет.\nВсе конфеты оппонента достаются сделавшему последний ход.')
+# input('Для продолжения нажмите ENTER...')
+# input('Сейчас пройдет жеребьевка\nДля продолжения нажмите ENTER...')
+# hod_bota = randrange(10) % 2
+# if not hod_bota:
+#     print('Первый ход за ботом')
+# else:
+#     print('Первый ход за вами')
+# input('Для продолжения нажмите ENTER...')
+# while n > 0:
+#     hod_bota = not hod_bota
+#     if hod_bota:
+#         if n % 29 == 0:
+#             x = randrange(1,29)
+#         else:
+#             x = n - (n // 29) * 29
+#         n -= x
+#         print('Бот забрал ',x)
+#         print(f'{"Осталось: "}{n}, {" конфет"}{okonchanie(n)}')
+#     else:
+#         wrong_input = True
+#         while wrong_input:
+#             x = input('Сколько конфет вы заберете: ')
+#             if x.isdigit() and int(x) >= 1 and int(x) <=28:
+#                 x = int(x)
+#                 wrong_input = not wrong_input
+#             else:
+#                 print('Не верно!\nНужно число от 1 до 28')
+#         n -= x
+#         print('Вы забрали ',x)
+#         print(f'{"Осталось: "}{n}, {" конфет"}{okonchanie(n)}')
+# if hod_bota:
+#     print('Бот забрал все! Жалкий человечишка)))')
+# else:
+#     print('Ты побели....\nВ этот раз...')
+
 # 3. Создайте программу для игры в "Крестики-нолики".
+
+
+
 
 # 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
 #     Входные и выходные данные хранятся в отдельных текстовых файлах.
@@ -46,14 +101,14 @@
 #     fil.write(zipped)
 
 # восстановление
-with open('Domashki/zip54.txt', 'r') as f:
-    zipped = f.read()
+# with open('Domashki/zip54.txt', 'r') as f:
+#     zipped = f.read()
 
-print(zipped)
-unzipped = ''
-for i in range(0,len(zipped),2):
-    unzipped += zipped[i] * int(zipped[i + 1])
-print(unzipped)
+# print(zipped)
+# unzipped = ''
+# for i in range(0,len(zipped),2):
+#     unzipped += zipped[i] * int(zipped[i + 1])
+# print(unzipped)
 
-with open('Domashki/unzip54.txt', 'w') as fil:
-    fil.write(unzipped)
+# with open('Domashki/unzip54.txt', 'w') as fil:
+#     fil.write(unzipped)

@@ -181,5 +181,3 @@
 #         if posl[i] > lst_posl[-1]:
 #             lst_posl.append(posl[i])
 #     print(lst_posl)
-    
-    
