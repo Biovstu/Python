@@ -83,7 +83,7 @@
 # Задача 5.3
 # Создайте программу для игры в "Крестики-нолики".
 
-# осталось добавить защиту от дурака и контроль дубля ходов
+# осталось добавить защиту от дурака
 # def prnt_tablo(tablo):
 #     print('+' + '-' * 11 + '+')
 #     print('| ' + tablo[0][0] + ' | ' + tablo[0][1] + ' | ' + tablo[0][2] + ' |')
@@ -101,7 +101,7 @@
 # hod_x = False
 # ne_pobeda = True
 # hody = []
-# while ne_pobeda or len(hody) < 9:
+# while ne_pobeda and len(hody) < 9:
 #     system('cls')
 #     prnt_tablo(krest_nol)
 #     hod_x = not hod_x
@@ -109,17 +109,23 @@
 #         mask = 'X'
 #     else:
 #         mask = '0'
-#     strok_stolbec = list(map(lambda x: int(x) - 1, list(input(f'Выберите ячейку для {mask} (строка столбец):\n').split())))
-#     hody.append(strok_stolbec)
+#     wrong = True
+#     while wrong:
+#         strok_stolbec = list(map(lambda x: int(x) - 1, list(input(f'Выберите ячейку для {mask} (строка столбец):\n').split())))
+#         if strok_stolbec not in hody:
+#             wrong = False
+#             hody.append(strok_stolbec)
+#         else:
+#             print('Такой ход уже был, попробуйте снова...')
 #     krest_nol[strok_stolbec[0]][strok_stolbec[1]] = mask
 #     if krest_nol[strok_stolbec[0]][0] == mask and krest_nol[strok_stolbec[0]][1] == mask and krest_nol[strok_stolbec[0]][2] == mask:
-#         ne_pobeda = not ne_pobeda
+#         ne_pobeda = False
 #     elif krest_nol[0][strok_stolbec[1]] == mask and krest_nol[1][strok_stolbec[1]] == mask and krest_nol[2][strok_stolbec[1]] == mask:
-#         ne_pobeda = not ne_pobeda
+#         ne_pobeda = False
 #     elif krest_nol[0][0] == mask and krest_nol[1][1] == mask and krest_nol[2][2] == mask:
-#         ne_pobeda = not ne_pobeda
+#         ne_pobeda = False
 #     elif krest_nol[0][2] == mask and krest_nol[1][1] == mask and krest_nol[2][0] == mask:
-#         ne_pobeda = not ne_pobeda
+#         ne_pobeda = False
 # system('cls')
 # prnt_tablo(krest_nol)
 # if len(hody) < 9:
