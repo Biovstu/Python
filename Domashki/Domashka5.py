@@ -100,8 +100,8 @@
 # krest_nol = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
 # hod_x = False
 # ne_pobeda = True
-# hody = []# защита от повтора ходов
-# while ne_pobeda:
+# hody = []
+# while ne_pobeda or len(hody) < 9:
 #     system('cls')
 #     prnt_tablo(krest_nol)
 #     hod_x = not hod_x
@@ -110,6 +110,7 @@
 #     else:
 #         mask = '0'
 #     strok_stolbec = list(map(lambda x: int(x) - 1, list(input(f'Выберите ячейку для {mask} (строка столбец):\n').split())))
+#     hody.append(strok_stolbec)
 #     krest_nol[strok_stolbec[0]][strok_stolbec[1]] = mask
 #     if krest_nol[strok_stolbec[0]][0] == mask and krest_nol[strok_stolbec[0]][1] == mask and krest_nol[strok_stolbec[0]][2] == mask:
 #         ne_pobeda = not ne_pobeda
@@ -121,7 +122,10 @@
 #         ne_pobeda = not ne_pobeda
 # system('cls')
 # prnt_tablo(krest_nol)
-# print('Победу одержал',mask)
+# if len(hody) < 9:
+#     print('Победу одержал',mask)
+# else:
+#     print('Ничья')
 
 # Задача 5.4
 # 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
