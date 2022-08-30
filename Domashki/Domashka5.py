@@ -166,11 +166,10 @@
 # zipped = ''
 # a = unzipped[0]
 # for i in range(1,len(unzipped)):
-#     if a[0] != unzipped[i] or i == len(unzipped) - 1:
+#     a += unzipped[i]
+#     if a[0] != unzipped[i] or i == len(unzipped) - 1 or len(a) == 9:
 #         zipped += a[0] + str(len(a))
 #         a = unzipped[i]
-#     else:
-#         a += unzipped[i]
 # print(zipped)
 
 # with open('Domashki/zip54.txt', 'w') as fil:
