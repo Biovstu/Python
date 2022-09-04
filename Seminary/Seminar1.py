@@ -31,6 +31,7 @@
 # for n in range(-number, number + 1):
 #     print(n, end=' ')
 
-a = float(input())
-print( int(a * 10) % 10)
+# a = float(input())
+# print( int(a * 10) % 10)
 
+# print('\\n')
