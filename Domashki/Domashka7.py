@@ -88,14 +88,50 @@ def download(file_name, format_zapisi, knigka):
                     data.write('\n')
 
 
+from os import system
+
 zap_knig = upload('domashki\\basa_kontantov.txt')#чтение из базы
-show_spis(zap_knig)# вывод книжки
-
-print('----added----')
-zap_knig.extend(upload('domashki\\istochnik.txt'))#добавлениие из внешнего файла
-show_spis(zap_knig)# вывод книжки
-
-
-form = int(input('Выберите формат записи\n0 - в дереве\n1 - в строке\n'))
-download('domashki\\priemnik.txt', form, zap_knig)#сохранение во внешний файл
-
+vyhod = False
+while not vyhod:
+    system('cls')
+    print('Добро пожаловать в записную книжку\nИмеется записей:', len(zap_knig))
+    print('Выберите пункт меню:')
+    print('1. Показать все записи')
+    print('2. Добавить из файла')
+    print('3. Экспортировать в файл')
+    print('4. Поиск по записям')
+    print('0. Выход')
+    tmp = []
+    vybor = int(input())
+    match vybor:
+        case 1:
+            system('cls')
+            show_spis(zap_knig)# вывод книжки
+            input('Для возвращения в меню нажмите ENTER...')
+        case 2:
+            system('cls')
+            file = input('Введите путь к файлу:\n')
+            tmp.extend(upload(file))
+            print('Будут загружены следующие записи:')
+            show_spis(tmp)
+            y = input('Для подтверждения загрузки введите Y/y:')
+            if y in ['Y', 'y']:
+                zap_knig.extend(tmp)
+        case 3:
+            system('cls')
+            form = int(input('Выберите формат записи\n0 - в дереве\n1 - в строке\n'))
+            file = input('Введите путь к файлу:\n')
+            download(file, form, zap_knig)#сохранение во внешний файл
+        case 4:
+            system('cls')
+            zapros = input('Введите поисковый запрос\n')
+            tmp = [i for i in zap_knig if zapros in i[0] or zapros in i[1]]
+            print(f'Найденно {len(tmp)} записей')
+            show_spis(tmp)
+            input('Для возвращения в меню нажмите ENTER...')
+        case 0:
+            system('cls')
+            y = input('Для подтверждения входа введите Y/y:')
+            if y in ['Y', 'y']:
+                vyhod = True
+download('domashki\\basa_kontantov.txt', 1, zap_knig)
