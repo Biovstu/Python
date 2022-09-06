@@ -1,3 +1,18 @@
+# def dummy_number(n):
+#     if n in (0, 1):
+#         return n
+#     return (dummy_number(n - 2) + 1) * dummy_number(n - 1)
+
+
+# def dummy_numbers(up_to): # Генератор - отдельно.
+#     for k in range(up_to + 1):
+#         yield dummy_number(k)
+
+
+# for i in dummy_numbers(5):
+#     print(i)
+# 
+# 
 # Задача 5.0 (факультативная)
 # Дан список чисел. Создайте список, в который попадают числа, описываемые 
 # возрастающую последовательность. 
@@ -5,19 +20,41 @@
 #     *Пример:* 
 #     [1, 5, 2, 3, 4, 6, 1, 7] => [1, 2, 3] или [1, 7] или [1, 6, 7] и т.д.
 
+
 # def find_posl(ostatok, base = []):
-#     for i in range(len(ostatok)):
-#         if len(base) == 0 or ostatok[i] > base[-1]:
+#     for index, i in enumerate(ostatok):
+#         if len(base) == 0 or i > base[-1]:
 #             tmp = base.copy()
-#             tmp.append(ostatok[i])
+#             tmp.append(i)
 #             if len(tmp) > 1:
 #                 print(tmp)
-#             if i < len(ostatok) - 1:
-#                 find_posl(ostatok[i + 1:], tmp)
+#             if index < len(ostatok) - 1:
+#                 find_posl(ostatok[index + 1:], tmp)
+
+# a = [1, 5, 2, 3, 4, 6, 1, 7]
+# find_posl(a)
 
 
-# find_posl([1, 5, 2, 3, 4, 6, 1, 7]) #65 возрастающих последовательностей
-
+# Код на Python3 для демонстрации
+# использования ключевого слова yield
+ 
+# генерация нового списка, состоящего
+# только из четных чисел
+# def get_even(list_of_nums) :
+#     for i in list_of_nums:
+#         if i % 2 == 0:
+#             yield i
+ 
+# # инициализация списка
+# list_of_nums = [1, 2, 3, 8, 15, 42]
+ 
+# # вывод начального списка
+# print ("До фильтрации в генераторе: " +  str(list_of_nums))
+ 
+# # вывод только четных значений из списка
+# print ("Только четные числа: ", end = " ")
+# for i in get_even(list_of_nums):
+#     print (i, end = " ")
 
 # Задача 5.1
 # Напишите программу, удаляющую из текста все слова, содержащие "абв".
@@ -105,54 +142,54 @@
 # Создайте программу для игры в "Крестики-нолики".
 
 # осталось добавить защиту от дурака
-def prnt_tablo(tablo):
-    print('+' + '-' * 11 + '+')
-    print('| ' + tablo[0][0] + ' | ' + tablo[0][1] + ' | ' + tablo[0][2] + ' |')
-    print('+' + '-' * 11 + '+')
-    print('| ' + tablo[1][0] + ' | ' + tablo[1][1] + ' | ' + tablo[1][2] + ' |')
-    print('+' + '-' * 11 + '+')
-    print('| ' + tablo[2][0] + ' | ' + tablo[2][1] + ' | ' + tablo[2][2] + ' |')
-    print('+' + '-' * 11 + '+')
+# def prnt_tablo(tablo):
+#     print('+' + '-' * 11 + '+')
+#     print('| ' + tablo[0][0] + ' | ' + tablo[0][1] + ' | ' + tablo[0][2] + ' |')
+#     print('+' + '-' * 11 + '+')
+#     print('| ' + tablo[1][0] + ' | ' + tablo[1][1] + ' | ' + tablo[1][2] + ' |')
+#     print('+' + '-' * 11 + '+')
+#     print('| ' + tablo[2][0] + ' | ' + tablo[2][1] + ' | ' + tablo[2][2] + ' |')
+#     print('+' + '-' * 11 + '+')
 
 
-from os import system
-system('cls')
+# from os import system
+# system('cls')
 
-krest_nol = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
-hod_x = False
-ne_pobeda = True
-hody = []
-while ne_pobeda and len(hody) < 9:
-    system('cls')
-    prnt_tablo(krest_nol)
-    hod_x = not hod_x
-    if hod_x:
-        mask = 'X'
-    else:
-        mask = '0'
-    wrong = True
-    while wrong:
-        strok_stolbec = list(map(lambda x: int(x) - 1, list(input(f'Выберите ячейку для {mask} (строка столбец):\n').split())))
-        if strok_stolbec not in hody:
-            wrong = False
-            hody.append(strok_stolbec)
-        else:
-            print('Такой ход уже был, попробуйте снова...')
-    krest_nol[strok_stolbec[0]][strok_stolbec[1]] = mask
-    if krest_nol[strok_stolbec[0]][0] == mask and krest_nol[strok_stolbec[0]][1] == mask and krest_nol[strok_stolbec[0]][2] == mask:
-        ne_pobeda = False
-    elif krest_nol[0][strok_stolbec[1]] == mask and krest_nol[1][strok_stolbec[1]] == mask and krest_nol[2][strok_stolbec[1]] == mask:
-        ne_pobeda = False
-    elif krest_nol[0][0] == mask and krest_nol[1][1] == mask and krest_nol[2][2] == mask:
-        ne_pobeda = False
-    elif krest_nol[0][2] == mask and krest_nol[1][1] == mask and krest_nol[2][0] == mask:
-        ne_pobeda = False
-system('cls')
-prnt_tablo(krest_nol)
-if len(hody) < 9:
-    print('Победу одержал',mask)
-else:
-    print('Ничья')
+# krest_nol = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
+# hod_x = False
+# ne_pobeda = True
+# hody = []
+# while ne_pobeda and len(hody) < 9:
+#     system('cls')
+#     prnt_tablo(krest_nol)
+#     hod_x = not hod_x
+#     if hod_x:
+#         mask = 'X'
+#     else:
+#         mask = '0'
+#     wrong = True
+#     while wrong:
+#         strok_stolbec = list(map(lambda x: int(x) - 1, list(input(f'Выберите ячейку для {mask} (строка столбец):\n').split())))
+#         if strok_stolbec not in hody:
+#             wrong = False
+#             hody.append(strok_stolbec)
+#         else:
+#             print('Такой ход уже был, попробуйте снова...')
+#     krest_nol[strok_stolbec[0]][strok_stolbec[1]] = mask
+#     if krest_nol[strok_stolbec[0]][0] == mask and krest_nol[strok_stolbec[0]][1] == mask and krest_nol[strok_stolbec[0]][2] == mask:
+#         ne_pobeda = False
+#     elif krest_nol[0][strok_stolbec[1]] == mask and krest_nol[1][strok_stolbec[1]] == mask and krest_nol[2][strok_stolbec[1]] == mask:
+#         ne_pobeda = False
+#     elif krest_nol[0][0] == mask and krest_nol[1][1] == mask and krest_nol[2][2] == mask:
+#         ne_pobeda = False
+#     elif krest_nol[0][2] == mask and krest_nol[1][1] == mask and krest_nol[2][0] == mask:
+#         ne_pobeda = False
+# system('cls')
+# prnt_tablo(krest_nol)
+# if len(hody) < 9:
+#     print('Победу одержал',mask)
+# else:
+#     print('Ничья')
 
 # Задача 5.4
 # 4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.

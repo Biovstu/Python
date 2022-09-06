@@ -1,3 +1,9 @@
+# https://pastebin.com/zKw52mfv
+# 12345
+# https://pastebin.com/1mmJtC5Q
+# 12345
+
+
 # модуль проверки корректности
 def check(vhod):
     new_chislo = []

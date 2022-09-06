@@ -129,29 +129,29 @@
 #     return sum(nums)
     
 
-def obrabotka(vyrag):
-    vyrag = vyrag.replace(' ', '')
-    spisok_vyrag = []
-    chisla = []
-    propusk = False
-    pr = None
-    for index, i in enumerate(vyrag):
-        if pr and index <= pr:
-            continue
-        elif pr and index == pr + 1:
-            spisok_vyrag.append(i)
-            continue
-        if i.isdigit():
-            chisla.append(i)
-        elif i == '(':
-            pr = vyrag.rfind(')')
-            spisok_vyrag.append(str(obrabotka(vyrag[index + 1 : pr])))
-        else:
-            spisok_vyrag.append(''.join(chisla))
-            spisok_vyrag.append(i)
-            chisla.clear()
-    spisok_vyrag.append(''.join(chisla))
-    print(spisok_vyrag)
-    return scitalka(spisok_vyrag)
+# def obrabotka(vyrag):
+#     vyrag = vyrag.replace(' ', '')
+#     spisok_vyrag = []
+#     chisla = []
+#     propusk = False
+#     pr = None
+#     for index, i in enumerate(vyrag):
+#         if pr and index <= pr:
+#             continue
+#         elif pr and index == pr + 1:
+#             spisok_vyrag.append(i)
+#             continue
+#         if i.isdigit():
+#             chisla.append(i)
+#         elif i == '(':
+#             pr = vyrag.rfind(')')
+#             spisok_vyrag.append(str(obrabotka(vyrag[index + 1 : pr])))
+#         else:
+#             spisok_vyrag.append(''.join(chisla))
+#             spisok_vyrag.append(i)
+#             chisla.clear()
+#     spisok_vyrag.append(''.join(chisla))
+#     print(spisok_vyrag)
+#     return scitalka(spisok_vyrag)
 
-print(obrabotka('(11*(1+3)+2)*8/4'))
+# print(obrabotka('(11*(1+3)+2)*8/4'))
