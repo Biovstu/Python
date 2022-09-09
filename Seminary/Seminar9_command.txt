@@ -1,0 +1,49 @@
+Microsoft Windows [Version 10.0.19044.1889]
+(c) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+C:\Users\gehor>cd Documents\BI\Python\Seminary
+
+C:\Users\gehor\Documents\BI\Python\Seminary>.env\Scripts\activate.bat
+".env\Scripts\activate.bat" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\gehor\Documents\BI\Python\Seminary>python
+Python 3.10.7 (tags/v3.10.7:6cc6b13, Sep  5 2022, 14:08:36) [MSC v.1933 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> .env\Scripts\activate.bat
+  File "<stdin>", line 1
+    .env\Scripts\activate.bat
+    ^
+SyntaxError: invalid syntax
+>>> exit()
+
+C:\Users\gehor\Documents\BI\Python\Seminary>python -m venv .env
+
+C:\Users\gehor\Documents\BI\Python\Seminary>.env\Scripts\activate.bat
+
+(.env) C:\Users\gehor\Documents\BI\Python\Seminary>pythin -m pip install numpy
+"pythin" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+(.env) C:\Users\gehor\Documents\BI\Python\Seminary>python -m pip install numpy
+Collecting numpy
+  Downloading numpy-1.23.2-cp310-cp310-win_amd64.whl (14.6 MB)
+     ---------------------------------------- 14.6/14.6 MB 3.9 MB/s eta 0:00:00
+Installing collected packages: numpy
+Successfully installed numpy-1.23.2
+
+(.env) C:\Users\gehor\Documents\BI\Python\Seminary>.env\Scripts\deactivate.bat
+C:\Users\gehor\Documents\BI\Python\Seminary>python -m pip freeze
+
+C:\Users\gehor\Documents\BI\Python\Seminary>.env\Scripts\activate.bat
+
+(.env) C:\Users\gehor\Documents\BI\Python\Seminary>python -m pip freeze
+numpy==1.23.2
+
+(.env) C:\Users\gehor\Documents\BI\Python\Seminary>.env\Scripts\deactivate.bat
+C:\Users\gehor\Documents\BI\Python\Seminary>.env\Scripts\activate.bat
+
+(.env) C:\Users\gehor\Documents\BI\Python\Seminary>python -m pip freeze > requirements.txt
+
+(.env) C:\Users\gehor\Documents\BI\Python\Seminary>.env\Scripts\deactivate.bat
+C:\Users\gehor\Documents\BI\Python\Seminary>
