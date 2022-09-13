@@ -4,6 +4,7 @@ from data_base import get_data, change_data
 #a = None
 
 def print_job(x, date, a = None): #добавили значение по-умолчанию
+    # global a
     if a is None:
         a = get_data(x)
     return a[date]
