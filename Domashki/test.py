@@ -1,23 +1,36 @@
-# a_r = 2.5
-# a_i = 2
-#
-# a = complex(a_r, a_i)
-# b = complex(1, 3)
-# print('a - b =', a - b)
-#
-# def print_complex(a: complex):
-#     if a.imag == 0:
-#         return int(a.real) if a.real.is_integer() else a.real
-#     else:
-#         return a
-#
-# print('a - b =', print_complex(a - b))
+tmp = ['12.4', '0']
 
-a = float('-inf')
-print(a)
-b = float('+inf')
-print(b)
+def check(vhod):
+    new_chislo = []
+    vhod = vhod.replace(',', '.').replace(' ', '')  # заменяем на точки и убиарем пробелы
+    koef = ''
+    tochka = 0
+    tire = 0
+    for i in vhod:
+        if i == '-':
+            if tire:
+                return None
+            koef = '-'
+            tire += 1
+        elif i.isdigit():
+            new_chislo.append(koef + i)
+            if koef == '-':
+                koef = ''
+        elif i == '.':
+            tochka += 1
+            if tochka < 2:
+                new_chislo.append(i)
+            else:
+                break
+        else:
+            return None
+    chislo = ''.join(new_chislo)
+    if chislo != '':
+        return float(chislo)
+    else:
+        return None
 
-c = (a, b)
-print(c)
-print((c[0] + c[1]) / 2)
+
+print(check(tmp[0]) is not None)
+print(check(tmp[1]) is not None)
+print(check(tmp[0]) is not None and check(tmp[1]) is not None)
